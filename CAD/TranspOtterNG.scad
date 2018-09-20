@@ -1,4 +1,5 @@
-$fn=30;
+$fn=30
+;
 
 frame3D();
 
@@ -16,15 +17,16 @@ module frame2D(){
     gametrak_offset = 210;
     
     mainboard_offset = -60;
-    mainboard_offset_y = 95;
+    mainboard_offset_y = 110;
     mainboard_rotation = 270;
     
     pcb_offset = -60;
     pcb_offset_y = 10; 
     
-    battery_offset_x = -65;
-    battery_offset_y = -60;
+    battery_offset_x = -60;
+    battery_offset_y = -70;
     battery_rotation = 0;
+    
     
     difference(){
         union(){
@@ -57,12 +59,6 @@ module frame2D(){
             translate([gametrak_offset,0,10])
                 gametrak2D();
             
-            
-            translate([battery_offset_x,battery_offset_y,0])
-            rotate([0,0,battery_rotation])
-            translate([-70,-45,0])
-             square([140,90]);
-            
         }
     }
 }
@@ -81,14 +77,14 @@ module frame3D(){
     gametrak_offset = 210;
     
     mainboard_offset = -60;
-    mainboard_offset_y = 95;
+    mainboard_offset_y = 110;
     mainboard_rotation = 270;
     
     pcb_offset = -60;
     pcb_offset_y = 10; 
     
-    battery_offset_x = -65;
-    battery_offset_y = -60;
+    battery_offset_x = -60;
+    battery_offset_y = -70;
     battery_rotation = 0;
     
     difference(){
@@ -165,18 +161,15 @@ module frame3D(){
             linear_extrude(height = height+0.01, center = true, convexity = 10,  slices = 20) {
                 gametrak2D();
             }
-            
-            translate([battery_offset_x,battery_offset_y,10])
-            rotate([0,0,battery_rotation])
-            translate([-70,-45,0])
-            linear_extrude(height = height, center = true, convexity = 10,  slices = 20) {
-             square([140,90]);
-            }
         }
     }
-    translate([battery_offset_x,battery_offset_y,-10])
+    translate([battery_offset_x,battery_offset_y+(72/2)+4,-56/2])
     rotate([0,0,battery_rotation])
-    battery3D();
+    batteryBosch3D();
+    
+    translate([battery_offset_x,battery_offset_y-(72/2)-4,-56/2])
+    rotate([0,0,battery_rotation])
+    batteryBosch3D();
 }
 module base2D(){
     length = 600;
@@ -471,4 +464,9 @@ module battery3D(){
         }
         cube([65,75,55],center=true);
     }
+}
+
+module batteryBosch3D(){
+    color("black")
+    cube([190,72,56],center=true);
 }
