@@ -1,4 +1,5 @@
 $fn=9;
+//    batteryBosch3D();
 
 frame3D();
 
@@ -76,13 +77,13 @@ module frame3D(){
     gametrak_offset = 210;
     
     mainboard_offset = -60;
-    mainboard_offset_y = 110;
+    mainboard_offset_y = 120;
     mainboard_rotation = 270;
     
     pcb_offset = -60;
     pcb_offset_y = 10; 
     
-    battery_offset_x = -60;
+    battery_offset_x = -50;
     battery_offset_y = -70;
     battery_rotation = 0;
     
@@ -162,11 +163,11 @@ module frame3D(){
             }
         }
     }
-    translate([battery_offset_x,battery_offset_y+(72/2)+4,-56/2])
+    translate([battery_offset_x,battery_offset_y+(72/2)+5.5,-56/2])
     rotate([0,0,battery_rotation])
     batteryBosch3D();
     
-    translate([battery_offset_x,battery_offset_y-(72/2)-4,-56/2])
+    translate([battery_offset_x,battery_offset_y-(72/2)-5.5,-56/2])
     rotate([0,0,battery_rotation])
     batteryBosch3D();
 }
@@ -466,6 +467,21 @@ module battery3D(){
 }
 
 module batteryBosch3D(){
-    color("black")
+    color("grey")
     cube([190,72,56],center=true);
+    color("grey")
+    for(i = [-1:2:1]){
+        hull(){
+            translate([i*40,72/2+5,56/2-15])
+            cylinder(h=15,d=10);
+            translate([i*40,72/2,56/2-15])
+            cylinder(h=15,d=10);
+        }
+        hull(){
+            translate([i*100,72/2-28,56/2-15])
+            cylinder(h=15,d=10);
+            translate([i*95,72/2-28,56/2-15])
+            cylinder(h=15,d=10);
+        }
+    }
 }
