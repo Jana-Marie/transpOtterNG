@@ -1,4 +1,4 @@
-$fn=9;
+$fn=7;
 
 frame3D();
 
@@ -447,7 +447,7 @@ module pcb3D(){
         color("green")
         union(){
             translate([-25,0,0])
-            cube([50,100,3],center=true);
+            cube([45,100,3],center=true);
         }union(){
         }
     }
