@@ -1,7 +1,7 @@
 $fn=9;
 //    batteryBosch3D();
 
-frame3D();
+motorplate2D_part2();
 
 module frame2D(){
     height = 21;
@@ -267,15 +267,14 @@ module motorplate3D(){
 }
 
 module motorplate2D_cutout(){
-    mount_hole_size = 8.1;
+    mount_hole_size = 7;
     mount_hole_x = 80;
     mount_hole_y = 50;
     mount_hole_offset = 5;
     
     for(i = [-1:2:1]){
         for(j=[-1:2:1]){
-            translate([i*(mount_hole_x/2),j*(mount_hole_y/2)+mount_hole_offset])
-            circle(d=mount_hole_size);
+            translate([i*(mount_hole_x/2),j*(mount_hole_y/2)+mount_hole_offset])circle(d=mount_hole_size);
         }
     }
 }
@@ -283,7 +282,7 @@ module motorplate2D_cutout(){
 module motorplate2D(){
     length = 80;
     width = 100;
-    board_hole_size = 8.1;
+    board_hole_size = 7;
     board_hole_x = 30;
     board_hole_y = 23;
     board_hole_offset = -13;
@@ -312,6 +311,7 @@ module motorplate2D_part2(){
         union(){
             motorplate2D();
         }union(){
+            motorplate2D_cutout();
             translate([0,-(length/2)+(shaft_length/2)])
             square([shaft_width,shaft_length],center=true);
         }
@@ -366,7 +366,7 @@ module wheel2D_cutout(){
         for(i = [-1:2:1]){
             for(j=[-1:2:1]){
                 translate([i*(mount_hole_x/2),j*(mount_hole_y/2)])
-                #circle(d=mount_hole_size);
+                circle(d=mount_hole_size);
             }
         }
     }
@@ -448,7 +448,7 @@ module pcb3D(){
         color("green")
         union(){
             translate([-25,0,0])
-            cube([50,100,3],center=true);
+            cube([45,100,3],center=true);
         }union(){
         }
     }
