@@ -2,6 +2,8 @@
 
 Next Generation of TranspOtter.
 
+Generation 1: https://github.com/NiklasFauth/hoverboard-firmware-hack/wiki/Build-Instruction:-TranspOtter
+
 ![Front](https://raw.githubusercontent.com/Jan--Henrik/TranspOtterNG/master/Image/front.png)
 ![Front](https://raw.githubusercontent.com/Jan--Henrik/TranspOtterNG/master/Image/bottom.png)
 ![Front](https://raw.githubusercontent.com/Jan--Henrik/TranspOtterNG/master/Image/side.png)
