@@ -15,4 +15,4 @@ Next Generation of TranspOtter.
 
 ## Libs
 
-https://github.com/Jan--Henrik/KiCAD-libs
+https://github.com/Jana-Marie/KiCAD-libs
